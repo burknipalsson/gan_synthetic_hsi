@@ -1,0 +1,28 @@
+model_params:
+  name: 'WGAN_GP'
+  num_bands: 162
+  hidden_dims_crit: [64,16]
+  hidden_dims_gen: [16,64]
+  latent_dim: 10
+  lambda_gp: 10
+  n_critic: 5
+  truncation: 0.7
+  lr: 0.0002
+  b1: 0.5
+  b2: 0.99
+  tv: 0.000036
+  num_classes: 4
+
+datamodule_params:
+  data_path: "./Datasets/Urban4.mat"
+  threshold: 0.8
+  batch_size: 256
+
+trainer_params:
+  max_epochs: 100
+
+logging_params:
+  save_dir: "logs/"
+  name: "CWGAN_GP_TV"
+  version: "1"
+  manual_seed: 123456
